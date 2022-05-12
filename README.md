@@ -1,7 +1,7 @@
-[![Python application](https://github.com/fleuryc/Template-Python/actions/workflows/python-app.yml/badge.svg)](https://github.com/fleuryc/Template-Python/actions/workflows/python-app.yml)
-[![CodeQL](https://github.com/fleuryc/Template-Python/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fleuryc/Template-Python/actions/workflows/codeql-analysis.yml)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b03fbc514ea44fce83fe471896566cfd)](https://www.codacy.com/gh/fleuryc/Template-Python/dashboard)
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/b03fbc514ea44fce83fe471896566cfd)](https://www.codacy.com/gh/fleuryc/Template-Python/dashboard)
+[![Python application](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/python-app.yml/badge.svg)](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/python-app.yml)
+[![CodeQL](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/codeql-analysis.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/06480b57560846a293bed6d5d4f473e1)](https://www.codacy.com/gh/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/dashboard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/06480b57560846a293bed6d5d4f473e1)](https://www.codacy.com/gh/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/dashboard)
 
 - [Project](#project)
   - [Installation](#installation)
@@ -17,9 +17,14 @@
 
 # Project
 
--   What ?
--   Why ?
--   How ?
+Repository of OpenClassrooms' AI Engineer path, project #10 .
+
+Goal : use Azure Machine Learning, azure Cognitive Services (LUIS) and Azure Web App, to build a flights booking chatbot and integrate it in a web application.
+
+You can see the results here :
+
+- Presentation
+- Notebook : HTML page with interactive plots
 
 ## Installation
 
@@ -39,7 +44,7 @@ source env/bin/activate
 ### Dependencies
 
 ```bash
-# pip install kaggle jupyterlab ipykernel ipywidgets widgetsnbextension graphviz python-dotenv requests matplotlib seaborn plotly shap numpy statsmodels pandas sklearn nltk gensim pyLDAvis spacy transformers tensorflow
+# pip install jupyterlab ipykernel ipywidgets widgetsnbextension graphviz python-dotenv requests matplotlib seaborn plotly bokeh dtale lux-api pandas-profiling autoviz great_expectations popmon numpy statsmodels pandas modin[ray] sklearn torch tensorflow
 # > or :
 # pip install -r requirements.txt
 # > or just :
