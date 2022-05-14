@@ -161,7 +161,16 @@ clean-pycache: ## Remove python cache files
 .PHONY: dataset
 dataset: ## Download and extract dataset
 	@echo ">>> Downloading and saving data files..."
-	python -m src.data.make-dataset -t data/raw/
+	@if [ ! -f "data/raw/frames.json" ] ; \
+	then \
+		echo "Downloading data..." ; \
+		wget -q -O data/raw/frames.zip https://s3-eu-west-1.amazonaws.com/static.oc-static.com/prod/courses/files/AI+Engineer/Project+10%C2%A0-+D%C3%A9veloppez+un+chatbot+pour+r%C3%A9server+des+vacances/frames.zip ; \
+		unzip -u -q data/raw/frames.zip -d data/raw/ ; \
+		rm -f data/raw/frames.zip ; \
+		echo "Done."; \
+	else \
+		echo "Data files already downloaded."; \
+	fi
 	@echo ">>> OK."
 	@echo ""
 
