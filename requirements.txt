@@ -70,7 +70,7 @@ googleapis-common-protos==1.56.0
 gpustat==1.0.0b1
 graphviz==0.20
 great-expectations==0.15.4
-grpcio==1.43.0
+grpcio==1.46.1
 h5py==3.6.0
 histogrammar==1.0.26
 holoviews==1.14.9
