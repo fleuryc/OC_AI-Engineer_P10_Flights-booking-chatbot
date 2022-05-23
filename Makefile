@@ -61,9 +61,10 @@ requirements-dev.txt: check-system check-venv ## Create requirements-dev.txt fil
 requirements.txt: check-system check-venv ## Create requirements.txt file
 	@echo ">>> Creating 'requirements.txt' file..."
 	pip install --upgrade jupyterlab ipykernel ipywidgets widgetsnbextension \
-		graphviz python-dotenv requests matplotlib seaborn plotly bokeh \
-		dtale lux-api pandas-profiling autoviz great_expectations popmon \
-		numpy statsmodels pandas modin[ray] sklearn torch tensorflow
+		codecarbon graphviz python-dotenv requests matplotlib seaborn plotly bokeh \
+		dtale lux-api pandas-profiling autoviz great_expectations popmon pyod \
+		numpy statsmodels pandas modin[ray] sklearn torch tensorflow \
+		azure-cognitiveservices-language-luis
 	pip freeze | grep -v "pkg_resources" > requirements.txt
 	@echo ">>> OK."
 	@echo ""
