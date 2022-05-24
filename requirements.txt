@@ -173,7 +173,7 @@ pluggy==1.0.0
 popmon==0.8.0
 prometheus-client==0.13.1
 prompt-toolkit==3.0.29
-protobuf==3.20.1
+protobuf==3.19.4
 psutil==5.9.0
 ptyprocess==0.7.0
 pure-eval==0.2.2
@@ -237,7 +237,7 @@ tenacity==8.0.1
 tensorboard==2.9.0
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1
-tensorflow==2.9.0
+tensorflow==2.9.1
 tensorflow-estimator==2.9.0
 tensorflow-io-gcs-filesystem==0.25.0
 termcolor==1.1.0
@@ -255,6 +255,7 @@ tornado==6.1
 tqdm==4.64.0
 traitlets==5.2.0
 types-requests==2.27.25
+types-setuptools==57.4.15
 types-urllib3==1.26.14
 typing_extensions==4.2.0
 tzdata==2022.1
