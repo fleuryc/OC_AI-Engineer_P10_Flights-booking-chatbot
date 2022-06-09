@@ -1,0 +1,13 @@
+jupyterlab
+ipykernel
+ipywidgets
+widgetsnbextension
+numpy
+statsmodels
+pandas-profiling
+pandas
+modin[ray]
+graphviz
+plotly
+python-dotenv
+azure-cognitiveservices-language-luis

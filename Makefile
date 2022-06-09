@@ -1,15 +1,15 @@
+include .env
+
 SHELL = /bin/bash
 
 PYTHON = python3.9
-
 
 .DEFAULT_GOAL := help
 
 .PHONY: check-system
 check-system: ## Check system for necessary tools
 	@echo ">>> Checking python..."
-	@${PYTHON} --version || { echo ">>> Python 3.9 must be installed !"; exit 1; }
-	${PYTHON} -m ensurepip --upgrade
+	@${PYTHON} --version || { echo ">>> $(PYTHON) must be installed !"; exit 1; }
 	@echo ">>> OK."
 	@echo ""
 
@@ -60,11 +60,8 @@ requirements-dev.txt: check-system check-venv ## Create requirements-dev.txt fil
 
 requirements.txt: check-system check-venv ## Create requirements.txt file
 	@echo ">>> Creating 'requirements.txt' file..."
-	pip install --upgrade jupyterlab ipykernel ipywidgets widgetsnbextension \
-		codecarbon graphviz python-dotenv requests matplotlib seaborn plotly bokeh \
-		dtale lux-api pandas-profiling autoviz great_expectations popmon pyod \
-		numpy statsmodels pandas modin[ray] sklearn torch tensorflow \
-		azure-cognitiveservices-language-luis
+	pip install --upgrade pip
+	pip install --upgrade -r notebooks/requirements.txt -r bot/requirements.txt
 	pip freeze | grep -v "pkg_resources" > requirements.txt
 	@echo ">>> OK."
 	@echo ""
@@ -96,35 +93,35 @@ install: check-system check-venv deps-dev deps ## Check system and venv, and ins
 .PHONY: isort
 isort: ## Sort imports with Isort
 	@echo ">>> Sorting imports..."
-	isort src/ tests/
+	isort bot/ src/ tests/
 	@echo ">>> OK."
 	@echo ""
 
 .PHONY: format
 format: ## Format with Black
 	@echo ">>> Formatting code..."
-	black notebooks/ src/ tests/
+	black bot/ notebooks/ src/ tests/
 	@echo ">>> OK."
 	@echo ""
 
 .PHONY: lint
 lint: ## Lint with Flake8
 	@echo ">>> Linting code..."
-	flake8 --count --show-source --statistics src/ tests/
+	flake8 --count --show-source --statistics bot/ src/ tests/
 	@echo ">>> OK."
 	@echo ""
 
 .PHONY: bandit
 bandit: ## Check security Bandit
 	@echo ">>> Checking security ..."
-	bandit --recursive src/ tests/
+	bandit --recursive bot/ src/ tests/
 	@echo ">>> OK."
 	@echo ""
 
 .PHONY: mypy
 mypy: ## Type check with Mypy
 	@echo ">>> Checking types ..."
-	mypy --install-types --non-interactive src/ tests/
+	mypy --install-types --non-interactive bot/ src/ tests/
 	@echo ">>> OK."
 	@echo ""
 
@@ -155,7 +152,8 @@ qa: isort format lint bandit mypy test ## Run the full QA process
 .PHONY: clean-pycache
 clean-pycache: ## Remove python cache files
 	@echo ">>> Removing python artifacts..."
-	rm -rf ./**/*.pyc ./**/__pycache__
+	find . -name __pycache__ -type d -exec rm -rf {} \;
+	find . -name *.pyc -type f -exec rm -f {} \;
 	@echo ">>> OK."
 	@echo ""
 
@@ -196,9 +194,33 @@ clean-reults: ## Delete result files
 	@echo ">>> OK."
 	@echo ""
 
+.PHONY: clean-build
+clean-build: ## Delete result files
+	@echo ">>> Removing result files..."
+	find ./build/ -type f -not -name ".gitignore" -delete
+	@echo ">>> OK."
+	@echo ""
+
 .PHONY: clean
-clean: clean-venv clean-mypy clean-test clean-pycache clean-dataset clean-notebook clean-results ## Remove all file artifacts
+clean: clean-venv clean-mypy clean-test clean-pycache clean-dataset clean-notebook clean-results clean-build  ## Remove all file artifacts
+
+.PHONY: bot-start
+bot-start: check-venv ## Start bot locally
+	python bot/app.py
+
+.PHONY: bot-deploy
+bot-deploy: clean-build  ## Deploy bot to Azure
+	@echo ">>> Removing python artifacts..."
+	find bot/ -name __pycache__ -type d -exec rm -rf {} \;
+	find bot/ -name *.pyc -type f -exec rm -f {} \;
+	@echo ">>> Zipping bot files..."
+	cd bot && zip -r ../build/bot.zip . && cd ..
+	az login --tenant ${AZURE_TENANT_ID}
+	az account set --subscription ${AZURE_SUBSCRIPTION}
+	az webapp deployment source config-zip --resource-group ${AZURE_RESOURCE_GROUP_NAME} --name ${AZURE_WEB_APP_NAME} --src build/bot.zip
+	@echo ">>> OK."
+	@echo ""
 
 .PHONY: help
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-16s\033[0m %s\n", $$1, $$2}'
+help:  ## Print help
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sed -e 's/Makefile://' | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-16s\033[0m %s\n", $$1, $$2}'
