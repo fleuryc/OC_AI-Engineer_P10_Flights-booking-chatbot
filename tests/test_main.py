@@ -10,8 +10,8 @@ def test_main():
 def test_python_version():
     assert sys.version_info >= (  # nosec: B101
         3,
-        8,
-    ), "Python version should be >= 3.8"
+        9,
+    ), "Python version should be >= 3.9"
 
 
 if __name__ == "__main__":

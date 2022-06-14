@@ -135,7 +135,7 @@ clean-mypy: ## Remove Mypy cache files
 .PHONY: test
 test: ## Test and produce coverage report using pytest
 	@echo ">>> Running tests and processing coverage..."
-	pytest --cov-report=xml:coverage.xml --cov=src tests/
+	pytest --cov-report=xml:coverage.xml --cov=src --cov=bot tests/
 	@echo ">>> OK."
 	@echo ""
 
