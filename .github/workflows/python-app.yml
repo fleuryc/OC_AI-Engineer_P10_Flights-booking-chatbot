@@ -23,16 +23,16 @@ jobs:
           if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
       - name: Lint with flake8
         run: |
-          flake8 --count --show-source --statistics src/ tests/
+          flake8 --count --show-source --statistics bot/ src/ tests/
       - name: Type check with mypy
         run: |
-          mypy --install-types --non-interactive src/ tests/
+          mypy --install-types --non-interactive bot/ src/ tests/
       - name: Security check with bandit
         run: |
-          bandit --recursive src/ tests/
+          bandit --recursive bot/ src/ tests/
       - name: Test with pytest and report coverage to Codacy
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
         run: |
-          pytest --cov-report=xml:coverage.xml --cov=src tests/
+          pytest --cov-report=xml:coverage.xml --cov=src --cov=bot tests/
           bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
