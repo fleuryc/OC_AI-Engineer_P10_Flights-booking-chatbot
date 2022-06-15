@@ -4,11 +4,7 @@
 from typing import Final
 
 from booking_details import BookingDetails
-from botbuilder.core import (
-    BotTelemetryClient,
-    MessageFactory,
-    NullTelemetryClient,
-)
+from botbuilder.core import BotTelemetryClient, MessageFactory, NullTelemetryClient
 from botbuilder.dialogs import (
     ComponentDialog,
     DialogTurnResult,
@@ -55,9 +51,7 @@ class MainDialog(ComponentDialog):
 
         self.initial_dialog_id = MainDialog.INITIAL_DIALOG_ID
 
-    async def intro_step(
-        self, step_context: WaterfallStepContext
-    ) -> DialogTurnResult:
+    async def intro_step(self, step_context: WaterfallStepContext) -> DialogTurnResult:
         if not self._luis_recognizer.is_configured:
             await step_context.context.send_activity(
                 MessageFactory.text(
@@ -81,9 +75,7 @@ class MainDialog(ComponentDialog):
             TextPrompt.__name__, PromptOptions(prompt=prompt_message)
         )
 
-    async def act_step(
-        self, step_context: WaterfallStepContext
-    ) -> DialogTurnResult:
+    async def act_step(self, step_context: WaterfallStepContext) -> DialogTurnResult:
         if not self._luis_recognizer.is_configured:
             # LUIS is not configured, we just run the BookingDialog path with an empty BookingDetailsInstance.
             return await step_context.begin_dialog(
@@ -97,9 +89,7 @@ class MainDialog(ComponentDialog):
 
         if intent in LuisConstants.NOT_NONE_INTENTS and luis_result is not None:
             # Run the BookingDialog giving it whatever details we have from the LUIS call.
-            return await step_context.begin_dialog(
-                self._booking_dialog_id, luis_result
-            )
+            return await step_context.begin_dialog(self._booking_dialog_id, luis_result)
 
         else:
             didnt_understand_text = (
@@ -114,9 +104,7 @@ class MainDialog(ComponentDialog):
 
         return await step_context.next(None)
 
-    async def final_step(
-        self, step_context: WaterfallStepContext
-    ) -> DialogTurnResult:
+    async def final_step(self, step_context: WaterfallStepContext) -> DialogTurnResult:
         # If the child dialog ("BookingDialog") was cancelled or the user failed to confirm,
         # the Result here will be null.
         if step_context.result is not None:

@@ -69,7 +69,7 @@ idna==2.10
 ImageHash==4.2.1
 importlib-metadata==4.11.4
 iniconfig==1.1.1
-ipykernel==6.13.1
+ipykernel==6.14.0
 ipython==8.4.0
 ipython-genutils==0.2.0
 ipywidgets==7.7.0
@@ -131,7 +131,7 @@ phik==0.12.2
 pickleshare==0.7.5
 Pillow==9.1.1
 platformdirs==2.5.2
-plotly==5.8.1
+plotly==5.8.2
 pluggy==1.0.0
 prometheus-client==0.13.1
 prompt-toolkit==3.0.29
@@ -191,6 +191,9 @@ tomli==2.0.1
 tornado==6.1
 tqdm==4.64.0
 traitlets==5.2.2.post1
+types-chardet==4.0.4
+types-requests==2.27.30
+types-urllib3==1.26.15
 typing_extensions==4.2.0
 urllib3==1.25.11
 virtualenv==20.14.1

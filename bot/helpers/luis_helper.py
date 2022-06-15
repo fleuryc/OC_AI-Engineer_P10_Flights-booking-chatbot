@@ -71,7 +71,7 @@ class LuisHelper:
                     entity_name,
                     entity_type,
                 ) in LuisConstants.ALL_ENTITIES.items():
-                    top_entity = await LuisHelper.get_top_entity(
+                    top_entity = await LuisHelper._get_top_entity(
                         recognizer_result, entity_name, entity_type
                     )
 
@@ -88,7 +88,7 @@ class LuisHelper:
         return intent, result
 
     @staticmethod
-    async def get_top_entity(
+    async def _get_top_entity(
         recognizer_result: LuisRecognizer, entity_name: str, entity_type: str
     ) -> Optional[str]:
         """
