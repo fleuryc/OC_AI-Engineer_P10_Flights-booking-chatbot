@@ -168,7 +168,7 @@ class BookingDialog(CancelAndHelpDialog):
             f"https://api.monimpacttransport.fr/beta/getEmissionsPerDistance?filter=smart&fields=emoji&km={distance['distance']}"
         ).json()
         equivalents = requests.get(
-            "https://raw.githubusercontent.com/datagir/monconvertisseurco2/master/public/data/equivalents.json"
+            "https://raw.githubusercontent.com/datagir/monconvertisseurco2/1677802d89e9f1ad1678a0eb8d506c78e6f1f050/public/data/equivalents.json"
         ).json()
 
         msg = f"""
