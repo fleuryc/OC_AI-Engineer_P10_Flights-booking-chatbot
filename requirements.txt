@@ -12,7 +12,7 @@ async-timeout==3.0.1
 attrs==21.4.0
 azure-cognitiveservices-language-luis==0.2.0
 azure-common==1.1.28
-Babel==2.7.0
+Babel==2.10.2
 backcall==0.2.0
 bandit==1.7.4
 beautifulsoup4==4.11.1
