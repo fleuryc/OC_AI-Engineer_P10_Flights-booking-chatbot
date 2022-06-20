@@ -11,7 +11,7 @@ class DialogHelper:
     @staticmethod
     async def run_dialog(
         dialog: Dialog, turn_context: TurnContext, accessor: StatePropertyAccessor
-    ):  # pylint: disable=line-too-long
+    ):
         """Run dialog."""
         dialog_set = DialogSet(accessor)
         dialog_set.add(dialog)

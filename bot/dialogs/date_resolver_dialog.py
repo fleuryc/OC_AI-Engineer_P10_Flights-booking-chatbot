@@ -28,9 +28,7 @@ class DateResolverDialog(CancelAndHelpDialog):
         dialog_id: str = None,
         telemetry_client: BotTelemetryClient = NullTelemetryClient(),
     ):
-        super(DateResolverDialog, self).__init__(
-            dialog_id or DateResolverDialog.__name__, telemetry_client
-        )
+        super().__init__(dialog_id or DateResolverDialog.__name__, telemetry_client)
         self._dialog_id = dialog_id
         self.telemetry_client = telemetry_client
 

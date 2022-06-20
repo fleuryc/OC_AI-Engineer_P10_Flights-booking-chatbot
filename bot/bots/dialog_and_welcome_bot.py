@@ -28,9 +28,7 @@ class DialogAndWelcomeBot(DialogBot):
         dialog: Dialog,
         telemetry_client: BotTelemetryClient,
     ):
-        super(DialogAndWelcomeBot, self).__init__(
-            conversation_state, user_state, dialog, telemetry_client
-        )
+        super().__init__(conversation_state, user_state, dialog, telemetry_client)
         self.telemetry_client = telemetry_client
 
     async def on_members_added_activity(
@@ -41,22 +39,25 @@ class DialogAndWelcomeBot(DialogBot):
             # To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards
             # for more details.
             if member.id != turn_context.activity.recipient.id:
-                welcome_card = self.create_adaptive_card_attachment()
-                response = self.create_response(turn_context.activity, welcome_card)
+                welcome_card = DialogAndWelcomeBot.create_adaptive_card_attachment()
+                response = DialogAndWelcomeBot.create_response(
+                    turn_context.activity, welcome_card
+                )
                 await turn_context.send_activity(response)
 
-    def create_response(self, activity: Activity, attachment: Attachment):
+    @staticmethod
+    def create_response(activity: Activity, attachment: Attachment):
         """Create an attachment message response."""
         response = create_activity_reply(activity)
         response.attachments = [attachment]
         return response
 
-    # Load attachment from file.
-    def create_adaptive_card_attachment(self):
+    @staticmethod
+    def create_adaptive_card_attachment():
         """Create an adaptive card."""
         relative_path = os.path.abspath(os.path.dirname(__file__))
         path = os.path.join(relative_path, "resources/welcomeCard.json")
-        with open(path) as card_file:
+        with open(path, encoding="utf-8") as card_file:
             card = json.load(card_file)
 
         return Attachment(

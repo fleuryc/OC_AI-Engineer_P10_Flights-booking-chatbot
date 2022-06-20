@@ -55,7 +55,6 @@ class DialogBot(ActivityHandler):
         """
         return self._telemetry_client
 
-    # pylint:disable=attribute-defined-outside-init
     @telemetry_client.setter
     def telemetry_client(self, value: BotTelemetryClient) -> None:
         """
