@@ -85,8 +85,6 @@ luis publish version --region "LuisAppAuthoringRegion" --authoringKey "LuisAutho
 > These regions correspond to the three available portals, https://luis.ai, https://eu.luis.ai, or https://au.luis.ai. <br/> > `--publishRegion` corresponds to the region of the endpoint you're publishing to, (e.g. "westus", "southeastasia", "westeurope", "brazilsouth"). <br/>
 > See the [reference docs][endpoint-api] for a list of available publish/endpoint regions.
 
-[endpoint-api]: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78
-
 Outputs the following:
 
 ```json
@@ -209,5 +207,6 @@ This will return an object that looks like this:
 [quickstart-create]: https://docs.microsoft.com/azure/cognitive-services/luis/get-started-portal-build-app
 [quickstart-deploy]: https://docs.microsoft.com/azure/cognitive-services/luis/get-started-portal-deploy-app
 [luis-authoring-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions
+[endpoint-api]: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78
 [luis-akey]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-keys#authoring-key
 [readme-luis]: ./README-LUIS.md

@@ -9,17 +9,23 @@
     -   [Prerequisites](#prerequisites)
     -   [Virtual environment](#virtual-environment)
     -   [Dependencies](#dependencies)
+    -   [Environment variables](#environment-variables)
 -   [Usage](#usage)
     -   [Download data](#download-data)
-    -   [Run Notebook](#run-notebook)
-    -   [Quality Assurance](#quality-assurance)
+    -   [EDA (Exploratory Data Analysis)](#eda-exploratory-data-analysis)
+    -   [Create a LUIS app in the LUIS portal](#create-a-luis-app-in-the-luis-portal)
+    -   [Train LUIS Model](#train-luis-model)
+    -   [Test and debug with the Emulator](#test-and-debug-with-the-emulator)
+    -   [Tutorial: Provision a bot in Azure](#tutorial-provision-a-bot-in-azure)
+    -   [Deploy Bot to Azure Web App](#deploy-bot-to-azure-web-app)
+-   [Quality Assurance](#quality-assurance)
 -   [Troubleshooting](#troubleshooting)
 
 ---
 
 Repository of OpenClassrooms' AI Engineer path, project #10 .
 
-Goal : use Azure Machine Learning, azure Cognitive Services (LUIS) and Azure Web App, to build a flights booking chatbot and integrate it in a web application.
+Goal : use Azure Cognitive Services (LUIS), Azure Web App and Azure Application Insights, to build a flights booking chatbot, integrate it in a web application, and monitor its quality.
 
 You can see the results here :
 
@@ -31,6 +37,7 @@ You can see the results here :
 ### Prerequisites
 
 -   [Python 3.9](https://www.python.org/downloads/)
+-   [Azure Cognitive Services - LUIS](https://www.microsoft.com/cognitive-services/en-us/luis/)
 
 ### Virtual environment
 
@@ -44,7 +51,7 @@ source env/bin/activate
 ### Dependencies
 
 ```bash
-# pip install jupyterlab ipykernel ipywidgets widgetsnbextension graphviz python-dotenv requests matplotlib seaborn plotly bokeh dtale lux-api pandas-profiling autoviz great_expectations popmon numpy statsmodels pandas modin[ray] sklearn torch tensorflow
+# pip install -r notebooks/requirements.txt -r bot/requirements.txt
 # > or :
 # pip install -r requirements.txt
 # > or just :
@@ -53,25 +60,65 @@ make install
 
 ### Environment variables
 
--   Set environment variable values in [.env](.env) file (copy or rename [.env.example](.env.example)).
+Set environment variable values in (copy or rename `.env.example`) :
+
+-   [.env](.env)
+-   [bot/.env](bot/.env)
 
 ## Usage
 
 ### Download data
 
-Download, extract and upload to Azure Cityscape zip files.
+Download, and extract the Language Understanding Model (LUIS) training files from [Frames Dataset
+](https://www.microsoft.com/en-us/research/project/frames-dataset/download/ "Frames Dataset") :
 
 ```bash
 make dataset
 ```
 
-### Run Notebook
+### EDA (Exploratory Data Analysis)
+
+The [`main` notebook](notebooks/main.ipynb) presents the result of the EDA (exploratory data analysis) :
 
 ```bash
 jupyter-lab notebooks/main.ipynb
 ```
 
-### Quality Assurance
+### Create a LUIS app in the LUIS portal
+
+Follow the official documentation : [Create a LUIS app in the LUIS portal](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0&tabs=python#create-a-luis-app-in-the-luis-portal= "Create a LUIS app in the LUIS portal")
+
+### Train LUIS Model
+
+The [`luis` notebook](notebooks/luis.ipynb) formats the data, runs the LUIS training and tests the model :
+
+```bash
+jupyter-lab notebooks/luis.ipynb
+```
+
+### Test and debug with the Emulator
+
+Run the bot locally :
+
+```bash
+make bot-start
+```
+
+Follow the official documentation : [Test and debug with the Emulator](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0&tabs=python "Test and debug with the Emulator")
+
+### Tutorial: Provision a bot in Azure
+
+Follow the official documentation : [Tutorial: Provision a bot in Azure](https://docs.microsoft.com/en-us/azure/bot-service/tutorial-provision-a-bot?view=azure-bot-service-4.0&tabs=userassigned%2Cnewgroup "Tutorial: Provision a bot in Azure")
+
+### Deploy Bot to Azure Web App
+
+Build and deploy the bot to Azure Web App integrating the Bot Service, LUIS and Application Insights :
+
+```bash
+make bot-deploy
+```
+
+## Quality Assurance
 
 ```bash
 # make isort
@@ -83,6 +130,12 @@ jupyter-lab notebooks/main.ipynb
 # > or just :
 make qa
 ```
+
+This will run tests on the bot [`tests/test_bot.py`](tests/test_bot.py) :
+
+-   [x] test the LUIS service integration
+-   [x] test a dialog where the bot gathers the flight informations from the user
+-   [x] test a dialog where the user gives all the flight informations at once
 
 ## Troubleshooting
 
