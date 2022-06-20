@@ -24,7 +24,7 @@ from sklearn.model_selection import HalvingRandomSearchCV, StratifiedKFold
 warnings.filterwarnings(action="ignore", category=UserWarning)
 
 
-def find_best_params_classifier(
+def find_best_params_classifier(  # pylint: disable=too-many-arguments
     X_train: pd.DataFrame,
     y_train: pd.Series,
     X_test: pd.DataFrame,

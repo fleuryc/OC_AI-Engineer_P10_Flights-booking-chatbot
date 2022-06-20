@@ -208,7 +208,9 @@ _sources : https://monimpacttransport.fr/ and https://monconvertisseurco2.fr/_ (
         await adapter.test("Hi!", "Hello there ! What can I help you with today?")
 
         await adapter.test(
-            "I want to book a trip from Paris to London for less than $100. I will leave on the first of January 2023 and come back on the 17th of january 2023.",
+            "I want to book a trip from Paris to London for less than $100. \
+                I will leave on the first of January 2023 and \
+                    come back on the 17th of january 2023.",
             """Please confirm your trip details :
 - 🛫 from : **Paris**
 - 🛬 to : **London**

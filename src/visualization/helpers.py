@@ -204,7 +204,7 @@ def histogram(  # pylint: disable=too-many-arguments
     return fig
 
 
-def multiple_histogram(  # pylint: disable=too-many-locals
+def multiple_histogram(  # pylint: disable=too-many-locals,too-many-arguments
     df: pd.DataFrame,
     label_x: str,
     label_group: str,
@@ -286,7 +286,7 @@ def line_2D(  # pylint: disable=too-many-locals
     trendline: Union[
         Tuple[str, Callable], List[Tuple[str, Callable]], Dict[str, List[float]]
     ],
-    x_range: List[float] = [0, 1],
+    x_range: Tuple[float, float] = (0, 1),
     label_x: str = "x",
     label_y: str = "y",
     legend_title: str = "Line",
@@ -330,7 +330,7 @@ def line_2D(  # pylint: disable=too-many-locals
         x_vals.sort()
 
         # Rewrite x_range to actually be an x-axis range
-        x_range = [x_vals[0], x_vals[-1]]
+        x_range = (x_vals[0], x_vals[-1])
 
     names = []  # type: ignore
 
@@ -374,7 +374,7 @@ def line_2D(  # pylint: disable=too-many-locals
     return fig
 
 
-def scatter_2D(  # pylint: disable=too-many-locals
+def scatter_2D(  # pylint: disable=too-many-locals,too-many-arguments
     df: pd.DataFrame,
     label_x: Optional[str] = None,
     label_y: Optional[str] = None,
@@ -383,7 +383,7 @@ def scatter_2D(  # pylint: disable=too-many-locals
     size_multiplier: float = 1,
     title=None,
     show: bool = False,
-    x_range: Optional[List[float]] = None,
+    x_range: Optional[Tuple[float, float]] = None,
     trendline: Union[Callable, List[Callable], None] = None,
 ):
     """
