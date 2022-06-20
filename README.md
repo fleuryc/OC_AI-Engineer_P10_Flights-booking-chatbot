@@ -1,21 +1,21 @@
+# Flights booking chatbot
+
 [![Python application](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/python-app.yml/badge.svg)](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/python-app.yml)
 [![CodeQL](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/codeql-analysis.yml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/06480b57560846a293bed6d5d4f473e1)](https://www.codacy.com/gh/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/dashboard)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/06480b57560846a293bed6d5d4f473e1)](https://www.codacy.com/gh/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/dashboard)
 
-- [Project](#project)
-  - [Installation](#installation)
-    - [Prerequisites](#prerequisites)
-    - [Virtual environment](#virtual-environment)
-    - [Dependencies](#dependencies)
-  - [Usage](#usage)
-    - [Run Notebook](#run-notebook)
-    - [Quality Assurance](#quality-assurance)
-  - [Troubleshooting](#troubleshooting)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Virtual environment](#virtual-environment)
+  - [Dependencies](#dependencies)
+- [Usage](#usage)
+  - [Download data](#download-data)
+  - [Run Notebook](#run-notebook)
+  - [Quality Assurance](#quality-assurance)
+- [Troubleshooting](#troubleshooting)
 
-* * *
-
-# Project
+---
 
 Repository of OpenClassrooms' AI Engineer path, project #10 .
 
@@ -30,7 +30,7 @@ You can see the results here :
 
 ### Prerequisites
 
--   [Python 3.9](https://www.python.org/downloads/)
+- [Python 3.9](https://www.python.org/downloads/)
 
 ### Virtual environment
 
@@ -54,7 +54,6 @@ make install
 ### Environment variables
 
 - Set environment variable values in [.env](.env) file (copy or rename [.env.example](.env.example)).
-
 
 ## Usage
 
@@ -87,7 +86,7 @@ make qa
 
 ## Troubleshooting
 
--   Fix Plotly issues with JupyterLab
+- Fix Plotly issues with JupyterLab
 
 cf. [Plotly troubleshooting](https://plotly.com/python/troubleshooting/#jupyterlab-problems)
 
@@ -95,7 +94,7 @@ cf. [Plotly troubleshooting](https://plotly.com/python/troubleshooting/#jupyterl
 jupyter labextension install jupyterlab-plotly
 ```
 
--   If using Jupyter Notebook instead of JupyterLab, uncomment the following lines in the notebook
+- If using Jupyter Notebook instead of JupyterLab, uncomment the following lines in the notebook
 
 ```python
 import plotly.io as pio
