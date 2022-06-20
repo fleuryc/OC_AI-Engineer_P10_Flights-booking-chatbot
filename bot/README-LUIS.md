@@ -4,11 +4,8 @@ This README contains information on how to create and deploy a LUIS application.
 
 > _For instructions on how to create a LUIS Application via the LUIS portal, see these Quickstart steps:_
 >
-> 1. _[Quickstart: Create a new app in the LUIS portal][quickstart-create]_
-> 2. _[Quickstart: Deploy an app in the LUIS portal][quickstart-deploy]_
-
-[quickstart-create]: https://docs.microsoft.com/azure/cognitive-services/luis/get-started-portal-build-app
-[quickstart-deploy]: https://docs.microsoft.com/azure/cognitive-services/luis/get-started-portal-deploy-app
+> 1.  _[Quickstart: Create a new app in the LUIS portal][quickstart-create]_
+> 2.  _[Quickstart: Deploy an app in the LUIS portal][quickstart-deploy]_
 
 ## Table of Contents
 
@@ -20,13 +17,13 @@ This README contains information on how to create and deploy a LUIS application.
 
 ## [Prerequisites](#Table-of-Contents)
 
-#### Install Azure CLI >=2.0.61
+### Install Azure CLI >=2.0.61
 
 Visit the following page to find the correct installer for your OS:
 
 -   https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
 
-#### Install LUIS CLI >=2.4.0
+### Install LUIS CLI >=2.4.0
 
 Open a CLI of your choice and type the following:
 
@@ -34,14 +31,11 @@ Open a CLI of your choice and type the following:
 npm i -g luis-apis@^2.4.0
 ```
 
-#### LUIS portal account
+### LUIS portal account
 
 You should already have a LUIS account with either https://luis.ai, https://eu.luis.ai, or https://au.luis.ai. To determine where to create a LUIS account, consider where you will deploy your LUIS applications, and then place them in [the corresponding region][luis-authoring-regions].
 
 After you've created your account, you need your [Authoring Key][luis-akey] and a LUIS application ID.
-
-[LUIS-Authoring-Regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions]
-[LUIS-AKey]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-keys#authoring-key
 
 ---
 
@@ -110,8 +104,6 @@ Outputs the following:
 ```
 
 To see how to create an LUIS Cognitive Service Resource in Azure, please see [the next README][readme-luis]. This Resource should be used when you want to move your bot to production. The instructions will show you how to create and pair the resource with a LUIS Application.
-
-[readme-luis]: ./README-LUIS.md
 
 ---
 
@@ -213,3 +205,9 @@ This will return an object that looks like this:
     "key2": "####f99e####4b1a####fb3b####6b9f"
 }
 ```
+
+[quickstart-create]: https://docs.microsoft.com/azure/cognitive-services/luis/get-started-portal-build-app
+[quickstart-deploy]: https://docs.microsoft.com/azure/cognitive-services/luis/get-started-portal-deploy-app
+[luis-authoring-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions
+[luis-akey]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-keys#authoring-key
+[readme-luis]: ./README-LUIS.md
