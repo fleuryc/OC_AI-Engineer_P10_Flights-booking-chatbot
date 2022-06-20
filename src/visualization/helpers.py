@@ -9,7 +9,10 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
 from numpy import exp
-from numpy.core.fromnumeric import repeat, shape  # noqa: F401,W0611
+from numpy.core.fromnumeric import (  # noqa: F401,W0611 # pylint: disable=unused-import
+    repeat,
+    shape,
+)
 from scipy.stats import f_oneway
 from sklearn.base import ClassifierMixin, is_classifier
 from sklearn.decomposition import PCA
@@ -201,7 +204,7 @@ def histogram(  # pylint: disable=too-many-arguments
     return fig
 
 
-def multiple_histogram(  # pylint: disable=too-many-arguments
+def multiple_histogram(  # pylint: disable=too-many-locals
     df: pd.DataFrame,
     label_x: str,
     label_group: str,
@@ -279,7 +282,7 @@ def multiple_histogram(  # pylint: disable=too-many-arguments
     return fig
 
 
-def line_2D(  # pylint: disable=too-many-arguments
+def line_2D(  # pylint: disable=too-many-locals
     trendline: Union[
         Tuple[str, Callable], List[Tuple[str, Callable]], Dict[str, List[float]]
     ],
@@ -371,7 +374,7 @@ def line_2D(  # pylint: disable=too-many-arguments
     return fig
 
 
-def scatter_2D(  # pylint: disable=too-many-arguments
+def scatter_2D(  # pylint: disable=too-many-locals
     df: pd.DataFrame,
     label_x: Optional[str] = None,
     label_y: Optional[str] = None,
@@ -465,7 +468,7 @@ def scatter_2D(  # pylint: disable=too-many-arguments
     return fig
 
 
-def scatter_3D(
+def scatter_3D(  # pylint: disable=too-many-arguments
     df: pd.DataFrame,
     label_x: Optional[str] = None,
     label_y: Optional[str] = None,

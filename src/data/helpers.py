@@ -128,7 +128,7 @@ def load_data_from_csv(  # pylint: disable=too-many-arguments
     return df
 
 
-def reduce_dataframe_memory_usage(
+def reduce_dataframe_memory_usage(  # pylint: disable=too-many-branches
     df: pd.DataFrame,
     high_precision: bool = False,
 ) -> pd.DataFrame:

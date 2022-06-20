@@ -245,7 +245,8 @@ _sources : https://monimpacttransport.fr/ and https://monconvertisseurco2.fr/_""
 
         return await step_context.end_dialog()
 
-    def is_ambiguous(self, timex: str) -> bool:
+    @staticmethod
+    def is_ambiguous(timex: str) -> bool:
         """Ensure time is correct."""
         timex_property = Timex(timex)
         return "definite" not in timex_property.types
