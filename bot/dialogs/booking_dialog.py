@@ -21,9 +21,7 @@ class BookingDialog(CancelAndHelpDialog):
         dialog_id: str = None,
         telemetry_client: BotTelemetryClient = NullTelemetryClient(),
     ):
-        super(BookingDialog, self).__init__(
-            dialog_id or BookingDialog.__name__, telemetry_client
-        )
+        super().__init__(dialog_id or BookingDialog.__name__, telemetry_client)
         self.telemetry_client = telemetry_client
         text_prompt = TextPrompt(TextPrompt.__name__)
         text_prompt.telemetry_client = telemetry_client
@@ -179,7 +177,10 @@ Please confirm your trip details :
 - 😮‍💨 return date : **{ booking_details.end_date }**
 - 💸 for a budget of : **{ booking_details.budget }**
 
-🏭 This trip will produce **{round(flight_co2_impact[0]['emissions']['kgco2e']*2, 2)} kg of CO2eq** ({round(flight_co2_impact[0]['emissions']['kgco2e']*2 / 2000 * 100, 2)} % of your annual budget of 2000 kg)
+🏭 This trip will produce \
+**{round(flight_co2_impact[0]['emissions']['kgco2e']*2, 2)} kg of CO2eq** \
+({round(flight_co2_impact[0]['emissions']['kgco2e']*2 / 2000 * 100, 2)} % \
+of your annual budget of 2000 kg)
 
 ---
 

@@ -67,7 +67,7 @@ def download_extract_zip(
         logging.info("Extracted %s to %s", zip_file_url, target_path)
 
 
-def load_data_from_csv(
+def load_data_from_csv(  # pylint: disable=too-many-arguments
     data_path: str,
     file_name: str,
     sep: str = ",",
@@ -109,7 +109,7 @@ def load_data_from_csv(
         logging.error("Data not found, please run `make dataset`")
         raise ValueError(f"File {file_path} does not exist")
 
-    logging.info(f"Data found, loading from {file_path}")
+    logging.info("Data found, loading from %s", file_path)
     df = pd.read_csv(
         file_path,
         sep=sep,

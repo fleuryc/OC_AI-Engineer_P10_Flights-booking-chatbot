@@ -92,7 +92,7 @@ def _prepare_labels(
     return labels, human_readable
 
 
-def box_and_whisker(
+def box_and_whisker(  # pylint: disable=too-many-arguments
     df: pd.DataFrame,
     label_x: Optional[str] = None,
     label_y: Optional[str] = None,
@@ -139,7 +139,7 @@ def box_and_whisker(
     return fig
 
 
-def histogram(
+def histogram(  # pylint: disable=too-many-arguments
     df: pd.DataFrame,
     label_x: Optional[str] = None,
     label_y: Optional[str] = None,
@@ -201,7 +201,7 @@ def histogram(
     return fig
 
 
-def multiple_histogram(
+def multiple_histogram(  # pylint: disable=too-many-arguments
     df: pd.DataFrame,
     label_x: str,
     label_group: str,
@@ -279,7 +279,7 @@ def multiple_histogram(
     return fig
 
 
-def line_2D(
+def line_2D(  # pylint: disable=too-many-arguments
     trendline: Union[
         Tuple[str, Callable], List[Tuple[str, Callable]], Dict[str, List[float]]
     ],
@@ -371,7 +371,7 @@ def line_2D(
     return fig
 
 
-def scatter_2D(
+def scatter_2D(  # pylint: disable=too-many-arguments
     df: pd.DataFrame,
     label_x: Optional[str] = None,
     label_y: Optional[str] = None,
@@ -522,7 +522,7 @@ def scatter_3D(
     return fig
 
 
-def surface(
+def surface(  # pylint: disable=too-many-arguments
     x_values,
     y_values,
     calc_z: Callable,
@@ -631,7 +631,7 @@ def model_to_surface_plot(model, plot_features: List[str], data: pd.DataFrame):
     )
 
 
-def save_plot_as_image(
+def save_plot_as_image(  # pylint: disable=too-many-arguments
     fig, file="./plot.jpg", width=None, height="400", scale=1, img_format="jpg"
 ):
     """
@@ -853,7 +853,7 @@ def plot_boxes(
         fig.show()
 
 
-def plot_classifier_results(
+def plot_classifier_results(  # pylint: disable=too-many-arguments
     classifier: ClassifierMixin,
     X: pd.DataFrame,
     y_true: pd.Series,
@@ -1019,11 +1019,13 @@ def plot_top_words(model, feature_names, n_top_words, n_topics, title):
     axes = axes.flatten()
     for topic_idx, topic in enumerate(model.components_[0:n_topics]):
         top_features_ind = topic.argsort()[: -n_top_words - 1 : -1]
-        top_features = [feature_names[i] for i in top_features_ind]
-        weights = topic[top_features_ind]
 
         ax = axes[topic_idx]
-        ax.barh(top_features, weights, height=0.7)
+        ax.barh(
+            [feature_names[i] for i in top_features_ind],
+            topic[top_features_ind],
+            height=0.7,
+        )
         ax.set_title(f"Topic {topic_idx +1}", fontdict={"fontsize": 20})
         ax.invert_yaxis()
         ax.tick_params(axis="both", which="major", labelsize=15)

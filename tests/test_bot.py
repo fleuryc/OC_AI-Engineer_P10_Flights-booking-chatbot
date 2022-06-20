@@ -58,7 +58,8 @@ class TestLuisHelper(aiounittest.AsyncTestCase):
         )
 
         await adapter.test(
-            "I want leave on the first of January 2023 and come back on the 17th of january 2023.",
+            "I want leave on the first of January 2023 and come back on the \
+                17th of january 2023.",
             json.dumps(
                 {
                     "intent": LuisConstants.INFO_INTENT,
