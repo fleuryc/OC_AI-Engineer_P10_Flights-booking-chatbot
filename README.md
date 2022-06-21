@@ -29,8 +29,13 @@ Goal : use **Azure Cognitive Services (LUIS)**, **Azure Web App** and **Azure Ap
 
 You can see the results here :
 
--   Presentation
--   Notebook : HTML page with interactive plots
+-   [Presentation]()
+-   [Main notebook](https://fleuryc.github.io/OC_AI-Engineer_P10_Flights-booking-chatbot/main.html "Main notebook")
+-   [Datataset profile report](https://fleuryc.github.io/OC_AI-Engineer_P10_Flights-booking-chatbot/profile_report.html "Datataset profile report")
+
+This is the project architecture in production :
+
+![center-img h:450px](docs/img/architecture.drawio.png "Current MVP architecture")
 
 ## Goals
 
