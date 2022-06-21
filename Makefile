@@ -53,7 +53,8 @@ requirements-dev.txt: check-system check-venv ## Create requirements-dev.txt fil
 	@echo ">>> Creating 'requirements-dev.txt' file..."
 	pip install --upgrade pip
 	pip install --upgrade isort black "black[jupyter]" flake8 bandit mypy \
-		pytest pytest-cov aiounittest botbuilder-core botbuilder-dialogs
+		pytest pytest-cov aiounittest aiohttp \
+		botbuilder-core botbuilder-dialogs 
 	pip freeze | grep -v "pkg_resources" > requirements-dev.txt
 	@echo ">>> OK."
 	@echo ""
