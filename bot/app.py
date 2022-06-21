@@ -1,6 +1,3 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
-
 """
 This sample shows how to create a bot that demonstrates the following:
 - Use [LUIS](https://www.luis.ai) to implement core AI capabilities.
@@ -73,6 +70,11 @@ BOT = DialogAndWelcomeBot(CONVERSATION_STATE, USER_STATE, DIALOG, TELEMETRY_CLIE
 
 # Listen for incoming requests on /api/messages.
 async def messages(req: Request) -> Response:
+    """
+    Route for incoming requests for messages.
+    This method routes the messages to the bot's main handler.
+    """
+
     # Main bot message handler.
     if "application/json" in req.headers["Content-Type"]:
         body = await req.json()

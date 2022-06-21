@@ -1,3 +1,5 @@
+"""Tests for the bot module"""
+
 import json
 
 import aiounittest
@@ -14,11 +16,15 @@ from bot.helpers.luis_helper import LuisConstants, LuisHelper  # type: ignore
 
 
 class TestLuisHelper(aiounittest.AsyncTestCase):
+    """Tests for the LUIS helper class"""
+
     async def test_execute_luis_query(self):
+        """Tests the execute_luis_query method"""
         CONFIG = DefaultConfig()
         RECOGNIZER = FlightBookingRecognizer(CONFIG)
 
         async def exec_test(turn_context: TurnContext):
+            """Executes the test"""
             # Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.)
             intent, luis_result = await LuisHelper.execute_luis_query(
                 RECOGNIZER, turn_context
@@ -85,8 +91,13 @@ class TestLuisHelper(aiounittest.AsyncTestCase):
 
 
 class MainDialogTest(aiounittest.AsyncTestCase):
+    """Tests for the main dialog"""
+
     async def test_booking_dialog(self):
+        """Tests the booking dialog"""
+
         async def exec_test(turn_context: TurnContext):
+            """Executes the test"""
             dialog_context = await dialogs.create_context(turn_context)
             results = await dialog_context.continue_dialog()
 
@@ -176,7 +187,10 @@ _sources : https://monimpacttransport.fr/ and https://monconvertisseurco2.fr/_ (
         )
 
     async def test_luis_dialog(self):
+        """Tests the LUIS dialog"""
+
         async def exec_test(turn_context: TurnContext):
+            """Executes the test"""
             dialog_context = await dialogs.create_context(turn_context)
             results = await dialog_context.continue_dialog()
 

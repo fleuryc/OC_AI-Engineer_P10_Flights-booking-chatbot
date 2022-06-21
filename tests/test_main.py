@@ -1,3 +1,5 @@
+"""Tests for the main module"""
+
 import sys
 
 from src.main import main

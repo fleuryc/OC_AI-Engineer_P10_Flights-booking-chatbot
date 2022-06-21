@@ -1,5 +1,3 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
 from typing import Dict, Final, List, Optional, Tuple
 
 from booking_details import BookingDetails
@@ -50,6 +48,8 @@ class LuisConstants:
 
 
 class LuisHelper:
+    """Helper class to interact with LUIS."""
+
     @staticmethod
     async def execute_luis_query(
         luis_recognizer: LuisRecognizer, turn_context: TurnContext

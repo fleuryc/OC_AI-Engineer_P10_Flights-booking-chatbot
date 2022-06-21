@@ -1,5 +1,3 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
 """Flight booking dialog."""
 
 import requests
@@ -21,6 +19,7 @@ class BookingDialog(CancelAndHelpDialog):
         dialog_id: str = None,
         telemetry_client: BotTelemetryClient = NullTelemetryClient(),
     ):
+        """Initialize a new BookingDialog instance."""
         super().__init__(dialog_id or BookingDialog.__name__, telemetry_client)
         self.telemetry_client = telemetry_client
         text_prompt = TextPrompt(TextPrompt.__name__)

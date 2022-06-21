@@ -1,4 +1,4 @@
-# Flights booking chatbot
+# Fly Me : flights booking chatbot
 
 [![Python application](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/python-app.yml/badge.svg)](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/python-app.yml)
 [![CodeQL](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/codeql-analysis.yml)
@@ -25,12 +25,26 @@
 
 Repository of OpenClassrooms' AI Engineer path, project #10 .
 
-Goal : use Azure Cognitive Services (LUIS), Azure Web App and Azure Application Insights, to build a flights booking chatbot, integrate it in a web application, and monitor its quality.
+Goal : use **Azure Cognitive Services (LUIS)**, **Azure Web App** and **Azure Application Insights**, to build a flights booking chatbot, integrate it in a web application, and monitor its quality.
 
 You can see the results here :
 
 -   Presentation
 -   Notebook : HTML page with interactive plots
+
+## Goals
+
+-   [x] Integrate model output into a finished product :
+    -   [Azure Language Understanding - LUIS](https://www.luis.ai/applications "Azure Language Understanding - LUIS") : train and setup a dedicated language understanding model
+    -   [Azure App Service](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/resource/subscriptions/da2e4791-6dd1-422b-848a-a961cef6ab89/resourceGroups/OC_P10_Bot/providers/Microsoft.Web/sites/ocp10-bot-webapp/appServices "Azure App Service") : deploy an interactive API
+    -   [Azure Bot - Test in Web Chat](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/resource/subscriptions/da2e4791-6dd1-422b-848a-a961cef6ab89/resourceGroups/OC_P10_Bot/providers/Microsoft.BotService/botServices/fly_me/test "Azure Bot - Test in Web Chat") : test the bot in a web chat
+-   [x] Integrate an AI processing chain into an IT tool using a code version management tool :
+    -   [GitHub repository](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot "GitHub repository") : manage the code
+    -   [Automated tests](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot/actions/workflows/python-app.yml?query=branch%3Amain "Automated tests") : test the bot
+-   [x] Control the performance of the model in production
+    -   [Azure Application Insights](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/resource/subscriptions/da2e4791-6dd1-422b-848a-a961cef6ab89/resourceGroups/OC_P10_Bot/providers/microsoft.insights/components/ocp10-appinsights/overview "Azure Application Insights") : monitor the quality of the bot
+
+---
 
 ## Installation
 

@@ -1,5 +1,3 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
 """Main dialog to welcome users."""
 import json
 import os.path
@@ -28,12 +26,19 @@ class DialogAndWelcomeBot(DialogBot):
         dialog: Dialog,
         telemetry_client: BotTelemetryClient,
     ):
+        """Initialize the bot."""
         super().__init__(conversation_state, user_state, dialog, telemetry_client)
         self.telemetry_client = telemetry_client
 
     async def on_members_added_activity(
         self, members_added: List[ChannelAccount], turn_context: TurnContext
     ):
+        """
+        Send a welcome message to the user when they join the conversation.
+        :param members_added: The members added to the conversation.
+        :param turn_context: The context object for the turn.
+        """
+
         for member in members_added:
             # Greet anyone that was not the target (recipient) of this message.
             # To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards

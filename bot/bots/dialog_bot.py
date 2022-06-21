@@ -1,5 +1,3 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
 """Implements bot Activity handler."""
 
 from botbuilder.core import (
@@ -23,6 +21,7 @@ class DialogBot(ActivityHandler):
         dialog: Dialog,
         telemetry_client: BotTelemetryClient,
     ):
+        """Initialize the bot."""
         if conversation_state is None:
             raise Exception(
                 "[DialogBot]: Missing parameter. conversation_state is required"
@@ -38,6 +37,11 @@ class DialogBot(ActivityHandler):
         self.telemetry_client = telemetry_client
 
     async def on_message_activity(self, turn_context: TurnContext):
+        """
+        Handle the "message" activity type.
+        :param turn_context: The context object for the turn.
+        """
+
         await DialogExtensions.run_dialog(
             self.dialog,
             turn_context,

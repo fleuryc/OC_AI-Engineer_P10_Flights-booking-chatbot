@@ -1,5 +1,4 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
+"""Interface for flight booking recognizer."""
 
 from botbuilder.ai.luis import LuisApplication, LuisPredictionOptions, LuisRecognizer
 from botbuilder.core import (
@@ -13,9 +12,19 @@ from config import DefaultConfig
 
 
 class FlightBookingRecognizer(Recognizer):
+    """
+    Flight booking recognizer.
+    """
+
     def __init__(
         self, configuration: DefaultConfig, telemetry_client: BotTelemetryClient = None
     ):
+        """
+        Initializes a new instance of the FlightBookingRecognizer class.
+        :param configuration: The configuration to use.
+        :param telemetry_client: The telemetry client to use.
+        """
+
         self._recognizer = None
 
         luis_is_configured = (
@@ -41,8 +50,17 @@ class FlightBookingRecognizer(Recognizer):
 
     @property
     def is_configured(self) -> bool:
+        """
+        Checks whether the LUIS application is configured.
+        :return: A boolean representing whether LUIS is configured.
+        """
         # Returns true if luis is configured in the config.py and initialized.
         return self._recognizer is not None
 
     async def recognize(self, turn_context: TurnContext) -> RecognizerResult:
+        """
+        Recognizes the intent from an incoming message.
+        :param turn_context: The context object for this turn.
+        :return: A LuisRecognizerResult.
+        """
         return await self._recognizer.recognize(turn_context)  # type: ignore

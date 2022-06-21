@@ -1,5 +1,4 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
+"""Bot Framework Adapter with error handler."""
 import sys
 import traceback
 from datetime import datetime
@@ -14,16 +13,29 @@ from botbuilder.schema import Activity, ActivityTypes
 
 
 class AdapterWithErrorHandler(BotFrameworkAdapter):
+    """Bot Framework Adapter with error handler."""
+
     def __init__(
         self,
         settings: BotFrameworkAdapterSettings,
         conversation_state: ConversationState,
     ):
+        """
+        Initializes a new instance of the AdapterWithErrorHandler class.
+        :param settings: The settings to use.
+        :param conversation_state: The conversation state to use.
+        """
+
         super().__init__(settings)
         self._conversation_state = conversation_state
 
         # Catch-all for errors.
         async def on_error(context: TurnContext, error: Exception):
+            """
+            Logs any error caught.
+            :param context: The context object for the turn.
+            :param error: The error object.
+            """
             # This check writes out errors to console log
             # NOTE: In production environment, you should consider logging this to Azure
             #       application insights.

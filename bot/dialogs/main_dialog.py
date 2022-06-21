@@ -1,6 +1,4 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
-
+"""Main dialog that handles booking a flight."""
 from typing import Final
 
 from booking_details import BookingDetails
@@ -20,6 +18,8 @@ from .booking_dialog import BookingDialog
 
 
 class MainDialog(ComponentDialog):
+    """Main dialog that handles booking a flight."""
+
     INITIAL_DIALOG_ID: Final[str] = "MainDialog"
 
     def __init__(
@@ -28,6 +28,7 @@ class MainDialog(ComponentDialog):
         booking_dialog: BookingDialog,
         telemetry_client: BotTelemetryClient = None,
     ):
+        """Initialize the MainDialog with LuisRecognizer."""
         super().__init__(MainDialog.__name__)
         self.telemetry_client = telemetry_client or NullTelemetryClient()
 
@@ -52,6 +53,9 @@ class MainDialog(ComponentDialog):
         self.initial_dialog_id = MainDialog.INITIAL_DIALOG_ID
 
     async def intro_step(self, step_context: WaterfallStepContext) -> DialogTurnResult:
+        """
+        Intro step for the main dialog.
+        """
         if not self._luis_recognizer.is_configured:
             await step_context.context.send_activity(
                 MessageFactory.text(
@@ -76,6 +80,9 @@ class MainDialog(ComponentDialog):
         )
 
     async def act_step(self, step_context: WaterfallStepContext) -> DialogTurnResult:
+        """
+        Act step for the main dialog.
+        """
         if not self._luis_recognizer.is_configured:
             # LUIS is not configured, we just run the BookingDialog path with an empty BookingDetailsInstance.
             return await step_context.begin_dialog(
@@ -104,6 +111,9 @@ class MainDialog(ComponentDialog):
         return await step_context.next(None)
 
     async def final_step(self, step_context: WaterfallStepContext) -> DialogTurnResult:
+        """
+        Final step for the main dialog.
+        """
         # If the child dialog ("BookingDialog") was cancelled or the user failed to confirm,
         # the Result here will be null.
         if step_context.result is not None:

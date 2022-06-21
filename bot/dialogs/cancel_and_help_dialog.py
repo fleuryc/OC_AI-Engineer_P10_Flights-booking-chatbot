@@ -1,5 +1,3 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
 """Handle cancel and help intents."""
 
 from botbuilder.core import BotTelemetryClient, NullTelemetryClient
@@ -20,12 +18,14 @@ class CancelAndHelpDialog(ComponentDialog):
         dialog_id: str,
         telemetry_client: BotTelemetryClient = NullTelemetryClient(),
     ):
+        """Initialize a new CancelAndHelpDialog instance."""
         super().__init__(dialog_id)
         self.telemetry_client = telemetry_client
 
     async def on_begin_dialog(
         self, inner_dc: DialogContext, options: object
     ) -> DialogTurnResult:
+        """Handle the begin dialog event."""
         result = await self.interrupt(inner_dc)
         if result is not None:
             return result
@@ -33,6 +33,7 @@ class CancelAndHelpDialog(ComponentDialog):
         return await super().on_begin_dialog(inner_dc, options)
 
     async def on_continue_dialog(self, inner_dc: DialogContext) -> DialogTurnResult:
+        """Handle the continue dialog event."""
         result = await self.interrupt(inner_dc)
         if result is not None:
             return result
