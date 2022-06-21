@@ -39,6 +39,12 @@ jobs:
     - name: Test with pytest and report coverage to Codacy
       env:
         CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        MicrosoftAppId: ${{ secrets.MICROSOFTAPPID }}
+        MicrosoftAppPassword: ${{ secrets.MICROSOFTAPPPASSWORD }}
+        LuisAppId: ${{ secrets.LUISAPPID }}
+        LuisAPIKey: ${{ secrets.LUISAPIKEY }}
+        LuisAPIHostName: ${{ secrets.LUISAPIHOSTNAME }}
+        AppInsightsInstrumentationKey: ${{ secrets.APPINSIGHTSINSTRUMENTATIONKEY }}
       run: |
         if [ -f bot/requirements.txt ]; then pip install -r bot/requirements.txt; fi
         pytest --cov-report=xml:coverage.xml --cov=src --cov=bot tests/
