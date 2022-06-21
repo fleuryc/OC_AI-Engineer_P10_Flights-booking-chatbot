@@ -40,5 +40,6 @@ jobs:
       env:
         CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
       run: |
+        if [ -f bot/requirements.txt ]; then pip install -r bot/requirements.txt; fi
         pytest --cov-report=xml:coverage.xml --cov=src --cov=bot tests/
         bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
