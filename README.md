@@ -29,7 +29,7 @@ Goal : use **Azure Cognitive Services (LUIS)**, **Azure Web App** and **Azure Ap
 
 You can see the results here :
 
--   [Presentation]()
+-   [Presentation](https://fleuryc.github.io/OC_AI-Engineer_P10_Flights-booking-chatbot/presentation.html "Presentation")
 -   [Main notebook](https://fleuryc.github.io/OC_AI-Engineer_P10_Flights-booking-chatbot/main.html "Main notebook")
 -   [Datataset profile report](https://fleuryc.github.io/OC_AI-Engineer_P10_Flights-booking-chatbot/profile_report.html "Datataset profile report")
 
@@ -158,17 +158,4 @@ This will run tests on the bot [`tests/test_bot.py`](tests/test_bot.py) :
 
 ## Troubleshooting
 
--   Fix Plotly issues with JupyterLab
-
-cf. [Plotly troubleshooting](https://plotly.com/python/troubleshooting/#jupyterlab-problems)
-
-```bash
-jupyter labextension install jupyterlab-plotly
-```
-
--   If using Jupyter Notebook instead of JupyterLab, uncomment the following lines in the notebook
-
-```python
-import plotly.io as pio
-pio.renderers.default='notebook'
-```
+No known issues...
