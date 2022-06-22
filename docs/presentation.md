@@ -95,11 +95,9 @@ style: |
       display: block;
       margin: 0 auto;
     }
-
 ---
 
 <!-- _class:  lead -->
-
 
 # Fly Me
 
@@ -259,13 +257,9 @@ The final step in this project was to monitor the **chatbot's performance** :
 
 ### Demo
 
-| **Demo** | **Monitoring** |
-|:--------:|:------:|
+|                     **Demo**                     |                  **Monitoring**                  |
+| :----------------------------------------------: | :----------------------------------------------: |
 | ![center-img h:475px](img/screencast.gif "Demo") | ![center-img h:475px](img/monitoring.png "Demo") |
-
-
-
-
 
 ---
 
@@ -273,8 +267,8 @@ The final step in this project was to monitor the **chatbot's performance** :
 
 -   **integrate** the bot with multiple _Channels_ (Website, Discord, Teams, Slack, ...)
 -   **improve** the bot capacity to handle more _Intentions_ and _Entities_
--  **connect** the bot to an actual _Flight booking_ system
--  **monitor** more precisely the bot's performance : _errors_, _performance_, _availability_, ...
+-   **connect** the bot to an actual _Flight booking_ system
+-   **monitor** more precisely the bot's performance : _errors_, _performance_, _availability_, ...
 
 ---
 

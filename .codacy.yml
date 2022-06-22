@@ -2,3 +2,8 @@
 exclude_paths:
   - ".github/**"
   - ".vscode/**"
+
+engines:
+  remark-lint:
+    plugins:
+      - list-item-spacing: false
