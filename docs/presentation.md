@@ -263,12 +263,29 @@ The final step in this project was to monitor the **chatbot's performance** :
 
 ---
 
+### Target performance management policy
+
+In order to achieve the target performance, the following policy must be implemented :
+
+-   **store** each dialogs and inferred _intents_ and _entities_ in a _database_
+-   **transform and load** (ETL) the raw data in a _datawarehouse_ in a _format compatible with the LUIS service_
+-   daily **re-train** the _language understanding model_ with the new _intents_ and _entities_ of the **successful** bookings
+
+---
+
+### Target production architecture
+
+![center-img h:550px](img/target-architecture.drawio.png "Target production architecture")
+
+---
+
 ### Next steps
 
 -   **integrate** the bot with multiple _Channels_ (Website, Discord, Teams, Slack, ...)
 -   **improve** the bot capacity to handle more _Intentions_ and _Entities_
 -   **connect** the bot to an actual _Flight booking_ system
 -   **monitor** more precisely the bot's performance : _errors_, _performance_, _availability_, ...
+-   **implement** the model continuous _training_ and _deployment_
 
 ---
 

@@ -29,7 +29,7 @@ Goal : use **Azure Cognitive Services (LUIS)**, **Azure Web App** and **Azure Ap
 
 You can see the results here :
 
--   [Presentation](https://fleuryc.github.io/OC_AI-Engineer_P10_Flights-booking-chatbot/presentation.html "Presentation")
+-   [Presentation](https://fleuryc.github.io/OC_AI-Engineer_P10_Flights-booking-chatbot/index.html "Presentation")
 -   [Main notebook](https://fleuryc.github.io/OC_AI-Engineer_P10_Flights-booking-chatbot/main.html "Main notebook")
 -   [Datataset profile report](https://fleuryc.github.io/OC_AI-Engineer_P10_Flights-booking-chatbot/profile_report.html "Datataset profile report")
 
