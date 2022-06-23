@@ -59,7 +59,7 @@ gitdb==4.0.9
 GitPython==3.1.27
 google-api-core==2.8.2
 google-auth==2.8.0
-googleapis-common-protos==1.56.2
+googleapis-common-protos==1.56.3
 gpustat==1.0.0b1
 grapheme==0.6.0
 graphviz==0.20
@@ -84,11 +84,11 @@ jsonpickle==1.4.2
 jsonschema==4.6.0
 jupyter-client==7.3.4
 jupyter-core==4.10.0
-jupyter-server==1.17.1
+jupyter-server==1.18.0
 jupyterlab==3.4.3
 jupyterlab-pygments==0.2.2
 jupyterlab-server==2.14.0
-jupyterlab-widgets==1.1.0
+jupyterlab-widgets==1.1.1
 kiwisolver==1.4.3
 MarkupSafe==2.1.1
 matplotlib==3.5.2
@@ -113,7 +113,7 @@ nest-asyncio==1.5.5
 networkx==2.8.4
 notebook==6.4.12
 notebook-shim==0.1.0
-numpy==1.22.4
+numpy==1.23.0
 nvidia-ml-py3==7.352.0
 oauthlib==3.2.0
 opencensus==0.9.0
@@ -135,7 +135,7 @@ plotly==5.8.2
 pluggy==1.0.0
 prometheus-client==0.13.1
 prompt-toolkit==3.0.29
-protobuf==3.20.1
+protobuf==4.21.1
 psutil==5.9.1
 ptyprocess==0.7.0
 pure-eval==0.2.2
@@ -192,7 +192,7 @@ tornado==6.1
 tqdm==4.64.0
 traitlets==5.3.0
 types-chardet==4.0.4
-types-requests==2.27.30
+types-requests==2.27.31
 types-urllib3==1.26.15
 typing_extensions==4.2.0
 urllib3==1.25.11
