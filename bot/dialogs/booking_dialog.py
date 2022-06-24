@@ -2,6 +2,7 @@
 
 import requests
 from botbuilder.core import BotTelemetryClient, MessageFactory, NullTelemetryClient
+from botbuilder.core.bot_telemetry_client import Severity
 from botbuilder.dialogs import DialogTurnResult, WaterfallDialog, WaterfallStepContext
 from botbuilder.dialogs.prompts import ConfirmPrompt, PromptOptions, TextPrompt
 from botbuilder.schema import InputHints
@@ -239,6 +240,7 @@ _sources : https://monimpacttransport.fr/ and https://monconvertisseurco2.fr/_""
 
         self.telemetry_client.track_trace(
             "booking_refused",
+            severity=Severity.warning,
             properties=booking_details.__dict__,
         )
 
